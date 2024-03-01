@@ -1,0 +1,28 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "explorer.confirmDelete": false,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.formatOnSave": true,
+    "git.confirmSync": false,
+    "editor.minimap.enabled": false,
+    "git.autofetch": true,
+    "editor.parameterHints.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "window.menuBarVisibility": "toggle",
+    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
+    "editor.fontSize": 16,
+    "editor.scrollbar.horizontalScrollbarSize": 8,
+    "editor.scrollbar.verticalScrollbarSize": 8,
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.sideBar.location": "right",
+    "keyboard.dispatch": "keyCode",
+    "symbols.hidesExplorerArrows": false,
+    "workbench.iconTheme": "symbols",
+    "go.toolsManagement.autoUpdate": true
+}
