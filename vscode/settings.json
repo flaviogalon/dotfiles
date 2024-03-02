@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Default Dark+",
     "explorer.confirmDelete": false,
     "editor.rulers": [
         80,
@@ -14,7 +14,9 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "window.menuBarVisibility": "toggle",
     "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
-    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
+    "terminal.integrated.fontFamily": "'Hack Nerd Font Mono'",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeight": "bold",
     "editor.fontSize": 16,
     "editor.scrollbar.horizontalScrollbarSize": 8,
     "editor.scrollbar.verticalScrollbarSize": 8,
@@ -24,5 +26,13 @@
     "keyboard.dispatch": "keyCode",
     "symbols.hidesExplorerArrows": false,
     "workbench.iconTheme": "symbols",
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#383636",
+        "statusBar.noFolderBackground": "#383636",
+        "statusBar.debuggingBackground": "#383636",
+        "statusBarItem.remoteBackground": "#2c2c2c",
+        "terminal.background": "#2c2c2c"
+    }
 }
