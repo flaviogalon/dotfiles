@@ -20,28 +20,6 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim", 
       tag = "0.1.6", 
       dependencies = {"nvim-lua/plenary.nvim"},
-      config = function()
-          require("telescope").setup {
-              defaults = {
-                  mappings = {
-                      i = {
-                          ["<C-k>"] = "move_selection_previous",
-                          ["<C-j>"] = "move_selection_next",
-                      }
-                  }
-              },
-              extensions = {
-                fzf = {
-                  fuzzy = true,                    -- false will only do exact matching
-                  override_generic_sorter = true,  -- override the generic sorter
-                  override_file_sorter = true,     -- override the file sorter
-                  case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                                   -- the default case_mode is "smart_case"
-                }
-              },
-          }
-          require("telescope").load_extension("fzf")
-      end,
   },
   -- File tree
   {
@@ -107,6 +85,8 @@ require("lazy").setup({
   { "hrsh7th/nvim-cmp",
     config = function()
         local cmp = require("cmp")
+        local lspkind = require("lspkind")
+        local luasnip = require("luasnip")
         require("cmp").setup {
             snippet = {
                 expand = function(args)
@@ -123,10 +103,17 @@ require("lazy").setup({
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),  -- close completion window
             }),
             sources = cmp.config.sources({
+                { name = "nvim_lsp" }, -- snippets
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
             }),
+            formatting = {
+                format = lspkind.cmp_format({
+                    maxwidth = 50,
+                    ellipsis_char = "...",
+                }),
+            },
         }
     end
   },
@@ -137,31 +124,19 @@ require("lazy").setup({
   { "saadparwaiz1/cmp_luasnip" },
   { "rafamadriz/friendly-snippets" },
   -- LSP stuff
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  { "neovim/nvim-lspconfig" },
+  -- LSP servers configuration
+  { "neovim/nvim-lspconfig" }, -- easily configure language servers
+  { "hrsh7th/cmp-nvim-lsp" }, -- for autocompletion
   {
-    "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-    opts = function()
-      return require "configs.mason"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "mason")
-      require("mason").setup(opts)
-
-      -- custom nvchad cmd to install all mason binaries listed
-      vim.api.nvim_create_user_command("MasonInstallAll", function()
-        if opts.ensure_installed and #opts.ensure_installed > 0 then
-          vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
-        end
-      end, {})
-
-      vim.g.mason_binaries_list = opts.ensure_installed
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    event = "User FilePost",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-    end,
-  },
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  }, -- enhanced lsp uis
+  { "onsails/lspkind.nvim" },  -- vs-code like icons for autocompletion
 })
