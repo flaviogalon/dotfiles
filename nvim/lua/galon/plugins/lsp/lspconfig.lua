@@ -131,12 +131,20 @@ return {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
-    -- configure python server
-    lspconfig["pyright"].setup({
-      capabilities = capabilities,
+    lspconfig.pyright.setup({
       on_attach = on_attach,
+      settings = {
+        pyright = { autoImportCompletion = true },
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "openFilesOnly",
+            useLibraryCodeForTypes = true,
+            typeCheckingMode = "off",
+          },
+        },
+      },
     })
-
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
