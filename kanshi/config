@@ -1,0 +1,14 @@
+profile {
+	output eDP-1 disable
+	output DP-3 enable position 0,0 
+}
+
+profile {
+	output eDP-1 disable
+	output DP-2 enable position 0,0 
+}
+
+profile {
+	output eDP-1 enable position 0,0 
+}
+
