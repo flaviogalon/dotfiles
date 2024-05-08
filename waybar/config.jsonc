@@ -12,7 +12,6 @@
         "sway/scratchpad"
     ],
     "modules-center": [
-        // "sway/window", // window name, disabled for now since I don't like it
         "clock",
     ],
     "modules-right": [
@@ -29,23 +28,6 @@
         "custom/wlogout",
         "tray"
     ],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -99,13 +81,11 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
+        "format": "{:%H:%M %d/%m/%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -118,7 +98,6 @@
         "thermal-zone": 2,
         "hwmon-path": "/sys/class/thermal/thermal_zone4/temp",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
