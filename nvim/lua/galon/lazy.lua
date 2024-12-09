@@ -11,16 +11,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "galon.plugins" }, { import = "galon.plugins.lsp" } }, {
-  install = {
-    colorscheme = { "kanagawa" },
-    -- colorscheme = { "nightfly" },
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
+require("lazy").setup(
+  { { import = "galon.plugins" }, { import = "galon.plugins.lsp" }, { import = "galon.plugins.python" } },
+  {
+    install = {
+      colorscheme = { "kanagawa" },
+      -- colorscheme = { "nightfly" },
+    },
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    change_detection = {
+      notify = false,
+    },
+  }
+)

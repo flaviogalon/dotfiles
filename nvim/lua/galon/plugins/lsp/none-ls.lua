@@ -16,9 +16,9 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "black", -- python formatter
         "pylint", -- python linter
         "eslint_d", -- js linter
+        "ruff",
       },
     })
 
@@ -41,9 +41,14 @@ return {
           extra_filetypes = { "svelte" },
         }), -- js/ts formatter
         formatting.stylua, -- lua formatter
-        formatting.isort,
-        formatting.black,
+        formatting.ruff_format,
         diagnostics.pylint,
+        -- diagnostics.mypy.with({
+        --   extra_args = function()
+        --     local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+        --     return { "--python-executable", virtual .. "/bin/python3" }
+        --   end,
+        -- }),
         diagnostics.eslint_d.with({ -- js/ts linter
           condition = function(utils)
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs

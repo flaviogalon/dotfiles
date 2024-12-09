@@ -125,8 +125,10 @@ return {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
+    -- configure pyright language server
     lspconfig.pyright.setup({
       on_attach = on_attach,
+      capabilities = capabilities,
       settings = {
         pyright = { autoImportCompletion = true },
         python = {
@@ -139,6 +141,7 @@ return {
         },
       },
     })
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,

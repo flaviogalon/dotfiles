@@ -46,14 +46,14 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
         "gofumpt", -- go formatter
         "goimports-reviser", -- go imports formatter
         "golines", -- go formatter for long lines
         "pylint", -- python linter
         "eslint_d", -- js linter
         "golangci-lint", -- golang linter
+        "mypy",
+        "ruff",
       },
     })
   end,
