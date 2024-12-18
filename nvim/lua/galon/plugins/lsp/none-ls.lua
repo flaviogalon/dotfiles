@@ -42,11 +42,15 @@ return {
         }), -- js/ts formatter
         formatting.stylua, -- lua formatter
         formatting.ruff_format,
+        diagnostics.ruff,
         diagnostics.pylint,
+        -- diagnostics.mypy,
         -- diagnostics.mypy.with({
         --   extra_args = function()
-        --     local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
-        --     return { "--python-executable", virtual .. "/bin/python3" }
+        --     local python_path = require("venv-selector").python() or "/usr"
+        --     -- local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+        --     -- return { "--python-executable", python_path .. "/bin/python3" }
+        --     return { "--python-executable /home/galon/Projects/EdgeTier-Integration-Challenge/.venv/bin/python3" }
         --   end,
         -- }),
         diagnostics.eslint_d.with({ -- js/ts linter

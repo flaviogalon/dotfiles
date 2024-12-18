@@ -11,7 +11,9 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
-      python = { "ruff", "mypy" },
+      -- python = { "ruff", "mypy" },
+      -- TODO: fix mypy...
+      python = { "ruff" },
       go = { "golangcilint" },
     }
 
